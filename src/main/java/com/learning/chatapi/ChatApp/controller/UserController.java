@@ -61,6 +61,13 @@ public class UserController {
         return userService.getChats(userName);
     }
 
+    @GetMapping("/healthcheck")
+    Object healthcheck() {
+        Map<String, String> map = new HashMap<>();
+        map.put("status", "ok");
+        return map;
+    }
+
     Map<String, String> getSessionMap(Session session) {
         Map<String, String> sessionMap = new HashMap<>();
         sessionMap.put("XSESSIONID", session.getId());
